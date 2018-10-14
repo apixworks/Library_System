@@ -1,34 +1,44 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
-import javax.swing.text.html.ImageView;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
-    @FXML
-    public HBox member_hbox, book_hbox;
+public class MainWindowController implements Initializable {
+    @FXML public HBox member_hbox, book_hbox;
     @FXML public Label member_label, book_label;
-    @FXML public ImageView member_img;
+    @FXML public ImageView member_image;
+    @FXML public ImageView book_image;
+    @FXML public BorderPane borderPane;
 
     private String current;
     private ArrayList<HBox> hBoxes;
-    private ArrayList<HBox> temp_hBoxes;
     private ArrayList<Label> labels;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        hBoxes = new ArrayList<>();
-        hBoxes.add(book_hbox);
-        hBoxes.add(member_hbox);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("membership_management.fxml"));
+//            MembershipManagementController membershipManagementController = fxmlLoader.getController();
+//            membershipManagementController.getDetails(width);
+            borderPane.setCenter(fxmlLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void memberClick(){
@@ -45,24 +55,28 @@ public class Controller implements Initializable {
         if(current.equals("members")){
             clickedEffect(member_hbox,member_label);
 
-            temp_hBoxes = hBoxes;
-            temp_hBoxes.remove(member_hbox);
+            hBoxes = new ArrayList<>();
+            hBoxes.add(book_hbox);
 
             labels = new ArrayList<>();
             labels.add(book_label);
 
-            unclickedEffect(temp_hBoxes,labels);
+            member_image.setImage(new Image(Main.class.getResourceAsStream("icons/account-white.png")));
+
+            unclickedEffect(hBoxes,labels);
 
         }else if(current.equals("books")){
             clickedEffect(book_hbox, book_label);
 
-            temp_hBoxes = hBoxes;
-            temp_hBoxes.remove(book_hbox);
+            hBoxes = new ArrayList<>();
+            hBoxes.add(member_hbox);
 
             labels = new ArrayList<>();
             labels.add(member_label);
 
-            unclickedEffect(temp_hBoxes,labels);
+            book_image.setImage(new Image(Main.class.getResourceAsStream("icons/library-books-white.png")));
+
+            unclickedEffect(hBoxes,labels);
         }
     }
 
@@ -80,6 +94,15 @@ public class Controller implements Initializable {
         for(Label label: labels){
             label.setTextFill(Color.rgb(94,99,107));
         }
+        if(current.equals("members")){
+            book_image.setImage(new Image(Main.class.getResourceAsStream("icons/library-books.png")));
+        }else if(current.equals("books")){
+            member_image.setImage(new Image(Main.class.getResourceAsStream("icons/account.png")));
+        }
     }
+
+//    public void getDetails(double width){
+//
+//    }
 
 }

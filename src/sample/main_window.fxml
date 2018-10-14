@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:controller="sample.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainWindowController">
    <left>
       <Pane prefHeight="700.0" prefWidth="261.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
          <children>
@@ -29,14 +32,14 @@
             <Separator layoutX="14.0" layoutY="54.0" prefHeight="0.0" prefWidth="167.0" />
             <VBox layoutX="6.0" layoutY="76.0" prefHeight="600.0" prefWidth="250.0" spacing="10.0">
                <children>
-                  <HBox fx:id="member_hbox" onMouseClicked="#memberClick" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #1BBED2; -fx-background-radius: 5px;">
+                  <HBox fx:id="member_hbox" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#memberClick" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #1BBED2; -fx-background-radius: 5px;">
                      <effect>
                         <DropShadow color="#0000003b" offsetY="3.0" />
                      </effect>
                      <children>
-                        <ImageView fx:id="member_img" id="member_img" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="member_image" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/account.png" />
+                              <Image url="@icons/account-white.png" />
                            </image>
                         </ImageView>
                         <Pane prefHeight="200.0" prefWidth="200.0">
@@ -57,7 +60,7 @@
                      </padding></HBox>
                   <HBox fx:id="book_hbox" onMouseClicked="#bookClick" prefHeight="50.0" prefWidth="190.0">
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="book_image" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@icons/library-books.png" />
                            </image>
@@ -86,4 +89,77 @@
          </effect>
       </Pane>
    </left>
+   <top>
+      <AnchorPane prefHeight="65.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="800.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="600.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="200.0" layoutX="466.0" layoutY="3.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/male.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                        <VBox alignment="TOP_RIGHT" prefHeight="46.0" prefWidth="89.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="144.0">
+                                 <children>
+                                    <Label text="Fred Apina">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="18.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/arrow_down.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="140.0" text="Admin" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="3.0" />
+                           </padding>
+                        </VBox>
+                        <Separator layoutX="442.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="30.0" />
+                        <TextField focusTraversable="false" layoutX="109.0" layoutY="11.0" prefHeight="25.0" prefWidth="310.0" promptText="Search Here..." style="-fx-background-radius: 20px; -fx-background-color: #F5F5F5;">
+                           <effect>
+                              <DropShadow color="#00000036" height="5.0" offsetY="1.0" radius="2.0" width="5.0" />
+                           </effect>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="8.0">
+               <image>
+                  <Image url="@icons/logo.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="65.0" fitWidth="273.0" layoutX="-48.0" layoutY="1.0" opacity="0.07" pickOnBounds="true">
+               <image>
+                  <Image url="@icons/librer.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="270.0" layoutY="20.0" text="Welcome To Tanga" textFill="#fcb322">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="440.0" layoutY="20.0" text="Library Management System">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>
