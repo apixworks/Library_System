@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -24,6 +25,7 @@ public class MainWindowController implements Initializable {
     @FXML public ImageView member_image;
     @FXML public ImageView book_image;
     @FXML public BorderPane borderPane;
+    @FXML public TextField searchView;
 
     private String current;
     private ArrayList<HBox> hBoxes;
@@ -33,9 +35,9 @@ public class MainWindowController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("membership_management.fxml"));
-//            MembershipManagementController membershipManagementController = fxmlLoader.getController();
-//            membershipManagementController.getDetails(width);
             borderPane.setCenter(fxmlLoader.load());
+            MembershipManagementController membershipManagementController = fxmlLoader.getController();
+            membershipManagementController.getSearchView(searchView);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,8 +103,8 @@ public class MainWindowController implements Initializable {
         }
     }
 
-//    public void getDetails(double width){
-//
-//    }
+    public void getDetails(){
+
+    }
 
 }

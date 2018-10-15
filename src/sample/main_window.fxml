@@ -130,7 +130,7 @@
                            </padding>
                         </VBox>
                         <Separator layoutX="442.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="30.0" />
-                        <TextField focusTraversable="false" layoutX="109.0" layoutY="11.0" prefHeight="25.0" prefWidth="310.0" promptText="Search Here..." style="-fx-background-radius: 20px; -fx-background-color: #F5F5F5;">
+                        <TextField fx:id="searchView" focusTraversable="false" layoutX="109.0" layoutY="11.0" prefHeight="25.0" prefWidth="310.0" promptText="Search Here..." style="-fx-background-radius: 20px; -fx-background-color: #F5F5F5;">
                            <effect>
                               <DropShadow color="#00000036" height="5.0" offsetY="1.0" radius="2.0" width="5.0" />
                            </effect>
