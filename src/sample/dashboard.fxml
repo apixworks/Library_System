@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MembershipManagementController">
+   <children>
+      <Label text="Dashboard" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="904.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px;" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="200.0">
+         <effect>
+            <DropShadow color="#00000055" height="10.0" offsetY="1.0" radius="4.5" width="10.0" />
+         </effect>
+      </AnchorPane>
+      <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="30.0">
+         <image>
+            <Image url="@icons/arrow-right.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="31.0" layoutY="81.0" prefHeight="95.0" prefWidth="209.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 4px;">
+         <effect>
+            <DropShadow color="#00000045" height="8.0" offsetY="1.0" radius="3.5" width="8.0" />
+         </effect>
+      </Pane>
+      <Pane layoutX="267.0" layoutY="81.0" prefHeight="95.0" prefWidth="209.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 4px;">
+         <effect>
+            <DropShadow color="#00000045" height="8.0" offsetY="1.0" radius="3.5" width="8.0" />
+         </effect>
+      </Pane>
+      <Pane layoutX="496.0" layoutY="81.0" prefHeight="95.0" prefWidth="209.0" style="-fx-background-color: #FFFFFF;" />
+      <Pane layoutX="727.0" layoutY="81.0" prefHeight="95.0" prefWidth="209.0" style="-fx-background-color: #FFFFFF;" />
+   </children>
+</AnchorPane>

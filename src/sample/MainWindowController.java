@@ -46,11 +46,27 @@ public class MainWindowController implements Initializable {
     public void memberClick(){
         current = "members";
         stateChanger();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("membership_management.fxml"));
+            borderPane.setCenter(fxmlLoader.load());
+            MembershipManagementController membershipManagementController = fxmlLoader.getController();
+            membershipManagementController.getSearchView(searchView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void bookClick(){
         current = "books";
         stateChanger();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("book_management.fxml"));
+            borderPane.setCenter(fxmlLoader.load());
+            BooksManagementController booksManagementController = fxmlLoader.getController();
+            booksManagementController.getSearchView(searchView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void stateChanger(){

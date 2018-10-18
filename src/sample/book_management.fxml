@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MembershipManagementController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BooksManagementController">
    <children>
-      <Label text="Management" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="34.0">
+      <Label layoutX="133.0" layoutY="33.0" text="Management" AnchorPane.leftAnchor="133.0" AnchorPane.topAnchor="33.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label text="Membership" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="25.0">
+      <Label text="Books" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="25.0">
          <font>
             <Font size="24.0" />
          </font>
@@ -27,15 +27,14 @@
             <DropShadow color="#00000055" height="10.0" offsetY="1.0" radius="4.5" width="10.0" />
          </effect>
          <children>
-            <TableView fx:id="members_table" focusTraversable="false" layoutX="13.0" layoutY="68.0" prefHeight="502.0" prefWidth="876.0" stylesheets="@style.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="68.0">
+            <TableView fx:id="books_table" focusTraversable="false" layoutX="13.0" layoutY="68.0" prefHeight="502.0" prefWidth="876.0" stylesheets="@style.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="68.0">
                <columns>
-                  <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
-                  <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="faculty" prefWidth="75.0" text="Faculty" />
-                  <TableColumn fx:id="phone" prefWidth="75.0" text="Phone" />
-                  <TableColumn fx:id="date_birth" prefWidth="75.0" text="Date of Birth" />
-                  <TableColumn fx:id="sex" prefWidth="75.0" text="Sex" />
-                  <TableColumn fx:id="date_reg" prefWidth="75.0" text="Date of Reg" />
+                  <TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
+                  <TableColumn fx:id="title" prefWidth="75.0" text="Title" />
+                  <TableColumn fx:id="publication" prefWidth="75.0" text="Publication Year" />
+                  <TableColumn fx:id="language" prefWidth="75.0" text="Language" />
+                  <TableColumn fx:id="category" prefWidth="75.0" text="Category " />
+                  <TableColumn fx:id="status" prefWidth="75.0" text="Status" />
                   <TableColumn fx:id="action" prefWidth="75.0" text="Action" />
                </columns>
                <columnResizePolicy>
@@ -49,21 +48,21 @@
             <DropShadow color="#0000005c" offsetY="1.0" />
          </effect>
          <children>
-            <Label layoutX="14.0" layoutY="11.0" text="Library Members" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="11.0" text="Library Books" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="15.0" layoutY="41.0" text="Here is a list of all library members" textFill="WHITESMOKE">
+            <Label layoutX="15.0" layoutY="41.0" text="Here is a list of all library books" textFill="WHITESMOKE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="addMemberBtn" layoutX="754.0" layoutY="18.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addMemberDialog" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #ffffff; -fx-background-radius: 55px;" AnchorPane.rightAnchor="80.0">
+            <Button fx:id="addBookBtn" layoutX="754.0" layoutY="18.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addBookDialog" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #ffffff; -fx-background-radius: 55px;" AnchorPane.rightAnchor="80.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/account-add.png" />
+                        <Image url="@icons/book-add.png" />
                      </image>
                   </ImageView>
                </graphic>
