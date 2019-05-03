@@ -11,9 +11,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("main_window.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("main_window.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main_window.fxml"));
         primaryStage.setTitle("Tanga Library");
-        primaryStage.setScene(new Scene(root, 1000, 700));
+        primaryStage.setScene(new Scene(fxmlLoader.load(), 1000, 700));
+        MainWindowController mainWindowController = fxmlLoader.getController();
+        mainWindowController.getStage(primaryStage);
         primaryStage.setMaximized(true);
         primaryStage.show();
     }

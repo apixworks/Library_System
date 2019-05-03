@@ -32,19 +32,42 @@
             <Separator layoutX="14.0" layoutY="54.0" prefHeight="0.0" prefWidth="167.0" />
             <VBox layoutX="6.0" layoutY="76.0" prefHeight="600.0" prefWidth="250.0" spacing="10.0">
                <children>
-                  <HBox fx:id="member_hbox" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#memberClick" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #1BBED2; -fx-background-radius: 5px;">
+                  <HBox fx:id="dashboard_hbox" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#dashboardClick" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #1BBED2; -fx-background-radius: 5px;">
                      <effect>
                         <DropShadow color="#0000003b" offsetY="3.0" />
                      </effect>
                      <children>
-                        <ImageView fx:id="member_image" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="dashboard_image" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/account-white.png" />
+                              <Image url="@icons/dashboard-white.png" />
                            </image>
                         </ImageView>
                         <Pane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="member_label" layoutX="14.0" layoutY="5.0" text="Members" textFill="WHITE">
+                              <Label fx:id="dashboard_label" layoutX="14.0" layoutY="5.0" text="Dashboard" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Pane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+                     </padding></HBox>
+                  <HBox fx:id="member_hbox" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#memberClick" prefHeight="50.0" prefWidth="230.0">
+                     <children>
+                        <ImageView fx:id="member_image" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/account.png" />
+                           </image>
+                        </ImageView>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="member_label" layoutX="14.0" layoutY="5.0" text="Members" textFill="#5e636b">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -107,7 +130,7 @@
                               <Rectangle2D />
                            </viewport>
                         </ImageView>
-                        <VBox alignment="TOP_RIGHT" prefHeight="46.0" prefWidth="89.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="profile_box" alignment="TOP_RIGHT" prefHeight="46.0" prefWidth="89.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="144.0">
                                  <children>

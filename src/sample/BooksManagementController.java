@@ -15,8 +15,11 @@ import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
@@ -40,12 +43,50 @@ public class BooksManagementController implements Initializable {
     @FXML public TableColumn<Book, String> status;
     @FXML public TableColumn<Book, String> action;
 
+    @FXML public Pane profile_pane;
+    @FXML public HBox profile_update,logout;
+
+    @FXML public Label profile_update_label,logout_label;
+
     ObservableList<Book> books;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         anchorPane.setPrefWidth(Screen.getPrimary().getBounds().getWidth() -261);
         anchorPane.setPrefHeight(Screen.getPrimary().getBounds().getHeight() -66);
+
+        profile_update.addEventFilter(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                profile_update.setStyle("-fx-background-radius:5px; -fx-background-color:  #1BBED2;");
+                profile_update.setEffect(new DropShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0, 0.23), 10, 0, 0, 3));
+                profile_update_label.setTextFill(Color.rgb(255,255,255));
+            }
+        });
+        profile_update.addEventFilter(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                profile_update.setStyle(null);
+                profile_update.setEffect(null);
+                profile_update_label.setTextFill(Color.rgb(0,0,0));
+            }
+        });
+        logout.addEventFilter(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                logout.setStyle("-fx-background-radius:5px; -fx-background-color:  #1BBED2;");
+                logout.setEffect(new DropShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0, 0.23), 10, 0, 0, 3));
+                logout_label.setTextFill(Color.rgb(255,255,255));
+            }
+        });
+        logout.addEventFilter(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                logout.setStyle(null);
+                logout.setEffect(null);
+                logout_label.setTextFill(Color.rgb(0,0,0));
+            }
+        });
 
         isbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -54,6 +95,18 @@ public class BooksManagementController implements Initializable {
         category.setCellValueFactory(new PropertyValueFactory<>("category"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
         action.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+
+        books_table.setRowFactory(tv -> new TableRow<Book>() {
+            @Override
+            public void updateItem(Book item, boolean empty) {
+                super.updateItem(item, empty) ;
+                if (item == null) {
+                    setStyle("");
+                } else {
+                    setStyle("-fx-border-color: #E0E0E0; -fx-border-width: 0.7 0 0 0;");
+                }
+            }
+        });
 
         Callback<TableColumn<Book,String>, TableCell<Book,String>> cellFactory =
                 new Callback<TableColumn<Book, String>, TableCell<Book, String>>() {
@@ -199,5 +252,23 @@ public class BooksManagementController implements Initializable {
         }
         stage.setScene(editBookScene);
         stage.show();
+    }
+
+    public void getStage(Stage stage, VBox profileBox){
+        profileBox.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                profile_pane.setVisible(true);
+            }
+        });
+        stage.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                anchorPane.requestFocus();
+                if(profile_pane.isVisible()){
+                    profile_pane.setVisible(false);
+                }
+            }
+        });
     }
 }

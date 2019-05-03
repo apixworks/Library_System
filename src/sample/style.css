@@ -15,7 +15,7 @@
     /*-fx-font-family: "NanumGothic";*/
     /*-fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;*/
     /*-fx-text-fill: #d8d8d8;*/
-    /*-fx-alignment: center-left;*/
+    -fx-alignment: center-left;
 }
 .table-cell:selected {
     -fx-background-color: lightblue;
@@ -25,9 +25,9 @@
     -fx-border-color: white;
 }
 .table-row-cell{
-    -fx-cell-size: 40px;
-    /*-fx-border-color: white;*/
-    /*-fx-table-cell-border-color:white;*/
+    -fx-cell-size: 50px;
+    /*-fx-border-color: #E0E0E0;*/
+    /*-fx-border-width: 0.7 0 0 0;*/
 }
 .table-view .column-header .label {
     -fx-font-size: 20px;
